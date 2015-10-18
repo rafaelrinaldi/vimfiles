@@ -1,39 +1,55 @@
-# vim: set ft=sh:
-
 #!/bin/bash
 
-echo "==> Setting up Vim"
+echo "==> Setting up Vim..."
+
+# Create a backup of current Vim settings
+mkdir -p /tmp/vim_backup
+
+if [[ -d "$HOME/.vim" ]]; then
+  cp -r $HOME/.vim /tmp/vim_backup
+fi
+
+if [[ -f "$HOME/.vimrc" ]]; then
+  cp $HOME/.vimrc /tmp/vim_backup
+fi
 
 has_brew=`which brew`
+cwd=`pwd`
 
-if [[ $has_brew != "" ]]; then
-  brew update vim && brew upgrade vim &> /dev/null
-  echo "==> Vim was successfully updated!"
+if [[ -n $has_brew ]]; then
+  echo -n "==> Looking for Vim updates..."
+  brew install vim &> /dev/null
+  echo -en "\r==> Vim was successfully updated\n"
 else
   echo "==> Homebrew not found, skipped Vim update"
 fi
 
-mkdir -p $HOME/.vim
-cp -r ./vim $HOME/.vim
-cp -r ./vimrc $HOME/.vimrc
-cp -r ./vundle $HOME/.vundle.vim
+cp -r $cwd/vim $HOME/.vim
+cp $cwd/vimrc $HOME/.vimrc
 
 if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
-  echo "==> Downloading Vundle..."
-  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim &> /dev/null
+  echo -n "==> Downloading Vundle..."
+  git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim" &> /dev/null
+  echo -en "\r==> Vundle was successfully downloaded\n"
 fi
 
-# if [[ ! -d "$HOME/Dropbox" ]]; then
-#   echo -n "==> Do you wish to create Dropbox symlinks? (y/n)"
-#   read should_create_dropbox_symlinks
-# 
-#   if [[ $should_create_dropbox_symlinks -eq "y" ]]; then
-#     ln -s "$HOME/Dropbox/vimfiles/.vim" "$HOME/.vim"
-#     ln -s "$HOME/Dropbox/vimfiles/.vimrc" "$HOME/.vimrc"
-#     ln -s "$HOME/Dropbox/vimfiles/.vundle.vim" "$HOME/.vundle.vim"
-#   fi
-# fi
+echo -n "==> Installing Vundle plugins..."
+vim +PluginInstall +qall &> /dev/null
+echo -en "\r==> Vundle plugins were successfully installed\n"
 
-vim +PluginUpdate +PluginUpgrade +PluginClean &> /dev/null
+# Default theme is solarized
+theme_default="solarized"
 
-echo "Done! Your Vim is ready to go."
+# Read color scheme from the user
+echo -e "==> Color scheme name ($theme_default): \c"
+read theme
+
+if [[ -z $theme ]]; then
+  theme=$theme_default
+fi
+
+# Update `.vimrc` with color scheme
+cat $cwd/vimrc | sed -e "s/\"{{colorscheme}}/colorscheme $theme/" > "$HOME/.vimrc"
+
+echo "==> Done! Your Vim is ready to go."
+exit 0
