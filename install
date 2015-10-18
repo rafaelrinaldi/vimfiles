@@ -18,7 +18,7 @@ cwd=`pwd`
 
 if [[ -n $has_brew ]]; then
   echo -n "==> Looking for Vim updates..."
-  brew install vim &> /dev/null
+  brew upgrade vim &> /dev/null
   echo -en "\r==> Vim was successfully updated\n"
 else
   echo "==> Homebrew not found, skipped Vim update"
