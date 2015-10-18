@@ -1,0 +1,195 @@
+snippet import
+import { ${1:module} } from '${2:$1}';
+endsnippet
+
+snippet export
+export ${1:default} ${2:definition};
+endsnippet
+
+snippet class
+class ${1:Name}${2: extends ${3:Inherit}} {
+  constructor($4) {
+    $0
+  }
+}
+endsnippet
+
+snippet get
+get ${1:property}() {
+  return $0;
+}
+endsnippet
+
+snippet set
+set ${1:property}(value) {
+  $0
+}
+endsnippet
+
+snippet property
+get ${1:property}() {
+  return this.$1;
+}
+
+set $1(value) {
+  this.$1 = value;
+}
+endsnippet
+
+snippet let
+let ${1:variable} = ${2:value};
+endsnippet
+
+snippet const
+let ${1:variable} = ${2:value};
+endsnippet
+
+snippet map
+${1:list}.map(${2:item} => {
+  $0
+});
+endsnippet
+
+snippet reduce
+${1:list}.reduce(${2:item} => {
+  $0
+});
+endsnippet
+
+snippet promise
+new Promise((resolve, reject) => (
+  resolve($0);
+));
+endsnippet
+
+snippet maybe
+${1:promise}
+  .then(${2:value} => {
+    $0
+  })
+  .catch(error => {
+    console.error(error);
+  })
+endsnippet
+
+snippet log
+console.log($0);
+endsnippet
+
+snippet warn
+console.warn($0);
+endsnippet
+
+snippet error
+console.error($0);
+endsnippet
+
+snippet strict
+'use strict';
+
+$0
+endsnippet
+
+snippet iife
+(function(${2:exports}) {
+  'use strict';
+
+  $0
+})(${1:this});
+endsnippet
+
+snippet var
+var ${1:variable} = ${2:value};
+endsnippet
+
+snippet new
+${1:const} ${2:instance} = new ${3:Class}($0);
+endsnippet
+
+snippet fn
+function${1: name}($2) {
+  $0
+}
+endsnippet
+
+snippet arr
+${1:const} ${2:list} = [$0];
+endsnippet
+
+snippet obj
+${1:const} ${2:object} = \{$0\};
+endsnippet
+
+snippet switch
+switch(${1:expression}) {
+  case ${2:value}:
+    $0
+  break;
+}
+endsnippet
+
+snippet while
+while(${1:condition}) {
+  $0
+}
+endsnippet
+
+snippet if
+if(${1:condition}) {
+  $0
+}
+endsnippet
+
+snippet else
+if(${1:condition}) {
+  ${2:statement}
+} else {
+  $0
+}
+endsnippet
+
+snippet /
+// $0
+endsnippet
+
+snippet /*
+/*
+$0
+*/
+endsnippet
+
+snippet /**
+/**
+* $0
+**/
+endsnippet
+
+snippet module
+function ${1:Module}($2) {
+  $3
+}
+
+$1.prototype.initialize = function($4) {
+  $0
+};
+
+return $1;
+endsnippet
+
+snippet require
+var ${1:module} = require('${2:$1}');
+endsnippet
+
+snippet exports
+module.exports = $0;
+endsnippet
+
+snippet umd
+if(typeof define === 'function' && define.amd) {
+  define(function() { return ${1:module}; });
+} else if(typeof module !== 'undefined' && module.exports) {
+  module.exports = $1;
+} else {
+  exports.$1 = $1;
+}
+endsnippet
