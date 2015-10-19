@@ -121,14 +121,15 @@ set hls
 " Give one virtual space at end of line
 set virtualedit=onemore
 
-" Enhanced command line completion
-set wildmenu
-
 " Complete files like a shell
-set wildmode=list:longest
+set wildmenu wildmode=list:longest,list:full
 
 " Specify files to ignore on wildmenu
-set wildignore+=*.png,*.jpg,*.gif,*.o,.git,tmp/**,node_modules/**,.DS_Store
+set wildignore+=.git,.svn
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
+set wildignore+=*.sw?
+set wildignore+=.DS_Store
+set wildignore+=node_modules,bower_components
 
 " Set highlight for search
 set hlsearch
