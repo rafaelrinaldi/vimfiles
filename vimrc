@@ -186,7 +186,7 @@ let g:lightline = {'colorscheme': 'wombat'}
 "# CtrlP
 "###############################################################################
 
-" Use the_silver_search instead of CtrlP's own algorithm (faster results)
+" Use the_silver_searcher instead of CtrlP's own fuzzy search algorithm (for faster results)
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 "###############################################################################
