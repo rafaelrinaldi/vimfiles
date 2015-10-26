@@ -26,7 +26,7 @@ call vundle#begin()
 "###############################################################################
 
 " Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Emmet
 Plugin 'mattn/emmet-vim'
