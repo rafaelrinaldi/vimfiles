@@ -7,11 +7,11 @@ echo "==> Setting up Vim..."
 mkdir -p /tmp/vim_backup
 
 if [[ -d "$HOME/.vim" ]]; then
-  cp -r $HOME/.vim /tmp/vim_backup
+  sudo cp -r $HOME/.vim /tmp/vim_backup
 fi
 
 if [[ -f "$HOME/.vimrc" ]]; then
-  cp $HOME/.vimrc /tmp/vim_backup
+  sudo cp $HOME/.vimrc /tmp/vim_backup
 fi
 
 has_brew=`which brew`
@@ -19,8 +19,14 @@ cwd=`pwd`
 
 if [[ -n $has_brew ]]; then
   echo -n "==> Looking for Vim updates..."
-  brew upgrade vim &> /dev/null
-  echo -en "\r==> Vim was successfully updated\n"
+  brew update &> /dev/null
+  if [[ -z `brew upgrade vim &> /dev/null` ]]; then
+    echo -en "\r==> Vim is currently on the latest version available\n"
+  else
+    echo -en "\r==> Updating Vim to the latest version...\n"
+    brew upgrade vim &> /dev/null
+    echo -en "\r==> Vim is now up to date\n"
+  fi
 else
   echo "==> Homebrew not found, skipped Vim update"
 fi
