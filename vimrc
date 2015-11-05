@@ -64,6 +64,9 @@ Plugin 'sirver/ultisnips'
 " Real time color preview for CSS
 Plugin 'ap/vim-css-color'
 
+" Code comments helper
+Plugin 'tpope/vim-commentary'
+
 "###############################################################################
 "# General settings
 "###############################################################################
