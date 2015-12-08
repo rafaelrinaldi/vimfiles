@@ -2,6 +2,8 @@
 
 > My Vim setup.
 
+<a href="https://dribbble.com/shots/1435854-Vim-Replacement-Icon"><img src="./vim.jpg" width="90" title="Vim logo by @jasonlong" /></a>
+
 ## Install
 
 ```sh
