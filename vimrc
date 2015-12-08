@@ -67,6 +67,12 @@ Plugin 'ap/vim-css-color'
 " Code comments helper
 Plugin 'tpope/vim-commentary'
 
+" Git wrapper
+Plugin 'tpope/vim-fugitive'
+
+" Automatically closes brackets, parens and quotes
+Plugin 'Raimondi/delimitMate'
+
 "###############################################################################
 "# General settings
 "###############################################################################
