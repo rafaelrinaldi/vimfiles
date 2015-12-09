@@ -15,10 +15,17 @@ $ ./install
 ## Setup
 
 * Before doing anything it will create a backup at `/tmp/vim_backup` so you can restore from there if needed
-* If [Homebrew](http://brew.sh) is available, will try to update Vim to the latest version
+* You have the option to use :sparkles: [Neovim](http://neovim.org) :dizzy: instead of Vim (it'll take care of making it work properly)
+* If [Homebrew](http://brew.sh) is available, will try to update the editor to its latest version
 * Uses [Vundle](https://github.com/VundleVim/Vundle.vim) to manage plugins (including Vundle itself)
 * Automatically download and installs Vundle plugins
 * Read color scheme from the user after installing all plugins (default is `solarized`)
+
+## Options
+
+### `--no-symbols`
+
+Do not add symbols to the output.
 
 ## License
 
