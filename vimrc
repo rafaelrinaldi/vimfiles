@@ -158,6 +158,10 @@ set noswapfile
 " Enable mouse in all modes
 set mouse=a
 
+" Change the position where panes are opened
+set splitbelow
+set splitright
+
 "###############################################################################
 "# Theming
 "###############################################################################
