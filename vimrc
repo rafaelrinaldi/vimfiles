@@ -162,6 +162,9 @@ set mouse=a
 set splitbelow
 set splitright
 
+" Limits the body of Git commit messages to 72 characters
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 "###############################################################################
 "# Theming
 "###############################################################################
