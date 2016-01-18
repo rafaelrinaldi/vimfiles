@@ -25,7 +25,7 @@ $ ./install
 
 ### `--no-symbols`
 
-Do not add symbols to the output.
+Do not add symbols to install the output.
 
 ## License
 
