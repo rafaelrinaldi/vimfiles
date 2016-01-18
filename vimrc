@@ -73,6 +73,12 @@ Plugin 'tpope/vim-fugitive'
 " Automatically closes brackets, parens and quotes
 Plugin 'Raimondi/delimitMate'
 
+" Unix commands wrapper
+Plugin 'tpope/vim-eunuch'
+
+" Elm language
+Plugin 'elmcast/elm-vim'
+
 "###############################################################################
 "# General settings
 "###############################################################################
@@ -83,6 +89,9 @@ call vundle#end()
 " UTF-8 all the things
 set encoding=utf-8
 
+" Automatic plugin indent
+filetype plugin indent on
+
 " Show line numbers
 set number
 
@@ -91,7 +100,10 @@ set foldenable
 set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
-set foldlevel=1
+set foldlevel=2
+
+" Remap the space key to toggle current fold
+nnoremap <Space> za
 
 " Set the title at top of tab to be the filename
 set title
@@ -100,7 +112,7 @@ set title
 syntax enable
 
 " Tab
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2 shiftwidth=2 noexpandtab
 
 " Backspace
 set backspace=2
@@ -124,14 +136,14 @@ set hls
 set virtualedit=onemore
 
 " Complete files like a shell
-set wildmenu wildmode=list:longest,list:full
+set wildmenu wildmode=full
 
 " Specify files to ignore on wildmenu
 set wildignore+=.git,.svn
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 set wildignore+=*.sw?
 set wildignore+=.DS_Store
-set wildignore+=node_modules,bower_components
+set wildignore+=node_modules,bower_components,elm-stuff
 
 " Set highlight for search
 set hlsearch
@@ -142,7 +154,7 @@ set ignorecase
 " But case-sensitive if expression contains a capital letter
 set smartcase
 
-" Set no wrap for big lines
+" Remove automatic text wrapping
 set nowrap
 
 " Display status bar
@@ -152,10 +164,10 @@ set laststatus=2
 set nobackup
 set nowritebackup
 
-" Stop being bothered by Vim swap files (without leaving them)
+" Stop being bothered by Vim swap files
 set noswapfile
 
-" Enable mouse in all modes
+" Enable mouse in all modes because why not
 set mouse=a
 
 " Change the position where panes are opened
@@ -170,7 +182,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 "###############################################################################
 
 " Define color scheme
-"{{colorscheme}}
+colorscheme solarized
 
 " Set hidden characters colors to light gray
 highlight NonText ctermfg=lightgray ctermbg=white
@@ -180,7 +192,7 @@ highlight SpecialKey ctermfg=lightgray ctermbg=white
 "# Emmet
 "###############################################################################
 
-" Disable Emmet for any file type
+" Disable Emmet for all file types
 let g:user_emmet_install_global = 0
 
 " Specifies file types for Emmet
@@ -190,13 +202,60 @@ autocmd FileType html,erb,css,scss EmmetInstall
 "# Lightline
 "###############################################################################
 
-let g:lightline = {'colorscheme': 'wombat'}
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightLineFugitive',
+      \   'readonly': 'LightLineReadonly',
+      \   'modified': 'LightLineModified',
+      \   'filename': 'LightLineFilename'
+      \ }
+      \ }
+
+function! LightLineModified()
+  if &filetype == 'help'
+    return ''
+  elseif &modified
+    return '*'
+  elseif &modifiable
+    return ''
+  else
+    return ''
+  endif
+endfunction
+
+function! LightLineReadonly()
+  if &filetype == 'help'
+    return ''
+  elseif &readonly
+    return '⭤'
+  else
+    return ''
+  endif
+endfunction
+
+function! LightLineFugitive()
+  if exists('*fugitive#head')
+    let _ = fugitive#head()
+    return strlen(_) ? '⭠ '._ : ''
+  endif
+  return ''
+endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightLineModified() ? '' . LightLineModified() : ' ')
+endfunction
 
 "###############################################################################
 "# CtrlP
 "###############################################################################
 
-" Use the_silver_searcher instead of CtrlP's own fuzzy search algorithm (for faster results)
+" Use the_silver_searcher for fuzzy search
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 "###############################################################################
@@ -209,7 +268,7 @@ let g:indent_guides_guide_size = 1
 
 " Disable automatic colors and specify custom ones
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=gray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=lightgray
 
 "###############################################################################
