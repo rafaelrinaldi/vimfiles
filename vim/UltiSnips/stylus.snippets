@@ -51,8 +51,8 @@ position ${0:initial}
 endsnippet
 
 snippet @
-@media ${0:screen}
-  $1
+@media ${1:screen}
+  $2
 endsnippet
 
 snippet fx
@@ -108,6 +108,10 @@ snippet bd
 border ${1:1px} ${2:solid} ${3:red}
 endsnippet
 
+snippet m
+margin ${1:auto} ${2:auto}
+endsnippet
+
 snippet mt
 margin-top ${0:1rem}
 endsnippet
@@ -122,6 +126,10 @@ endsnippet
 
 snippet ml
 margin-left ${0:1rem}
+endsnippet
+
+snippet p
+padding ${1:0} ${2:0}
 endsnippet
 
 snippet pt
@@ -144,8 +152,16 @@ snippet w
 width ${0:100%}
 endsnippet
 
+snippet mw
+max-width ${0:100%}
+endsnippet
+
 snippet h
 height ${0:100%}
+endsnippet
+
+snippet mh
+max-height ${0:100%}
 endsnippet
 
 snippet t
@@ -197,8 +213,8 @@ display none
 endsnippet
 
 snippet sq
-width ${0:100%}
-height $0
+width ${1:100%}
+height $1
 endsnippet
 
 snippet af
@@ -222,7 +238,7 @@ snippet op
 opacity ${0:0}
 endsnippet
 
-snippet !
+snippet !i
 !important
 endsnippet
 
@@ -281,6 +297,18 @@ endsnippet
 
 snippet va
 vertical-align ${0:initial}
+endsnippet
+
+snippet v
+visibility ${0:visible}
+endsnippet
+
+snippet vh
+visibility hidden
+endsnippet
+
+snippet vv
+visibility visible
 endsnippet
 
 snippet easeinexpo
