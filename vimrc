@@ -182,7 +182,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 "###############################################################################
 
 " Define color scheme
-colorscheme solarized
+"{{colorscheme}}
 
 " Set hidden characters colors to light gray
 highlight NonText ctermfg=lightgray ctermbg=white
@@ -256,7 +256,10 @@ endfunction
 "###############################################################################
 
 " Use the_silver_searcher for fuzzy search
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+" let g:ctrlp_user_command = ['ag %s -l --nocolor --hidden -g ""'
+
+" Use Git's `ls-files` and properly ignore hidden files
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 "###############################################################################
 "# Indent guides
