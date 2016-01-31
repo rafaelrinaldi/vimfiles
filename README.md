@@ -20,6 +20,7 @@ $ ./install
 * Uses [Vundle](https://github.com/VundleVim/Vundle.vim) to manage plugins (including Vundle itself)
 * Automatically download and installs Vundle plugins
 * Read color scheme from the user after installing all plugins (default is `solarized`)
+* Supports GUIs making all visual configuration look consistent
 
 ## Options
 
