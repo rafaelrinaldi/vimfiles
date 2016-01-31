@@ -290,3 +290,35 @@ let g:polyglot_disabled = ['javascript']
 
 " When editing snippets, open a new vertical panel
 let g:UltiSnipsEditSplit='vertical'
+
+"###############################################################################
+"# GUI
+"###############################################################################
+
+if has('gui_running')
+  " Typography
+  set guifont=PragmataPro:h20
+  set linespace=5
+
+  " Ligatures support
+  set macligatures
+
+  " Force a screen render when changing modes
+  inoremap <special> <Esc> <Esc>hl
+
+  " Fix the way cursor looks
+  set guicursor+=i:blinkwait0
+
+  " Remove scroll bars
+  set guioptions-=T
+  set guioptions-=r
+
+  " Manually set whitespace chars colors (known issue in Solarized)
+  highlight CursorLineNr cterm=none ctermfg=0 guifg=#D15516 guibg=#FDF7E7
+  highlight NonText cterm=none ctermfg=0 guifg=#F0EBDA
+  highlight SpecialKey cterm=none ctermfg=0 guifg=#F0EBDA guibg=#FDF7E7
+
+  " Customize IndentGuides color scheme
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=none guibg=#9DABAB
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=none guibg=#F0EBDA
+endif
