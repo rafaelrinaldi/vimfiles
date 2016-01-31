@@ -184,6 +184,9 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 " Define color scheme
 "{{colorscheme}}
 
+" Display current line number in bold text
+highlight CursorLineNr cterm=bold
+
 " Set hidden characters colors to light gray
 highlight NonText ctermfg=lightgray ctermbg=white
 highlight SpecialKey ctermfg=lightgray ctermbg=white
