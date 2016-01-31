@@ -313,6 +313,9 @@ if has('gui_running')
   set guioptions-=T
   set guioptions-=r
 
+  " Display the default tab style
+  set guioptions-=e
+
   " Manually set whitespace chars colors (known issue in Solarized)
   highlight CursorLineNr cterm=none ctermfg=0 guifg=#D15516 guibg=#FDF7E7
   highlight NonText cterm=none ctermfg=0 guifg=#F0EBDA
