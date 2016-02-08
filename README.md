@@ -1,6 +1,6 @@
 # vimfiles
 
-> My Vim setup.
+> My Vim setup
 
 <a href="https://dribbble.com/shots/1435854-Vim-Replacement-Icon"><img src="./vim.png" width="120" title="Vim logo by @jasonlong" /></a>
 
