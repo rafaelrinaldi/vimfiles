@@ -33,6 +33,10 @@ $ tic $HOME/xterm-256color-italic.terminfo
 ```
 * Report new terminal type in iTerm2:
 ![iterm2-terminal-type](./iterm2-terminal-type)
+* Make sure you export your `$TERM` properly. In [Fish](http://fishshell.com):
+```fish
+set -g TERM xterm-256color-italic
+```
 * If everything went well:
 ```sh
 $ echo $TERM
