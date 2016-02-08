@@ -26,13 +26,13 @@ $ ./install
 
 * Copy the [`xterm-256color-italic.terminfo`](/master/xterm-256color-italic.terminfo) file to your `$HOME`
 * Make sure you have italics enabled in iTerm2:
-![iterm2-italics](./iterm2-italics)
+![iterm2-italics](./iterm2-italics.png)
 * Process the file with `tic`:
 ```sh
 $ tic $HOME/xterm-256color-italic.terminfo
 ```
 * Report new terminal type in iTerm2:
-![iterm2-terminal-type](./iterm2-terminal-type)
+![iterm2-terminal-type](./iterm2-terminal-type.png)
 * Make sure you export your `$TERM` properly. In [Fish](http://fishshell.com):
 ```fish
 set -g TERM xterm-256color-italic
