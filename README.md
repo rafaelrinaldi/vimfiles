@@ -22,9 +22,9 @@ $ ./install
 * Read color scheme from the user after installing all plugins (default is `solarized`)
 * Supports GUIs making all visual configuration look consistent
 
-### Enabling italic in iTerm2 and Vim
+## Enabling italic in iTerm2 and Vim
 
-* Copy the [`xterm-256color-italic.terminfo`](/master/xterm-256color-italic.terminfo) file to your `$HOME`
+* Copy the [`xterm-256color-italic.terminfo`](/xterm-256color-italic.terminfo) file to your `$HOME`
 * Make sure you have italics enabled in iTerm2:
 ![iterm2-italics](./iterm2-italics.png)
 * Process the file with `tic`:
