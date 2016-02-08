@@ -79,6 +79,9 @@ Plugin 'tpope/vim-eunuch'
 " Elm language
 Plugin 'elmcast/elm-vim'
 
+" Buffer navigation improved
+Plugin 'tpope/vim-unimpaired'
+
 "###############################################################################
 "# General settings
 "###############################################################################
@@ -183,6 +186,9 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Define color scheme
 "{{colorscheme}}
+
+" Enable italic text
+highlight Comment cterm=italic
 
 " Display current line number in bold text
 highlight CursorLineNr cterm=bold
@@ -315,6 +321,8 @@ if has('gui_running')
 
   " Display the default tab style
   set guioptions-=e
+
+  " Display default tab instead of OS
 
   " Manually set whitespace chars colors (known issue in Solarized)
   highlight CursorLineNr cterm=none ctermfg=0 guifg=#D15516 guibg=#FDF7E7
