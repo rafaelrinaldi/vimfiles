@@ -22,7 +22,7 @@ $ ./install
 * Read color scheme from the user after installing all plugins (default is `solarized`)
 * Supports GUIs making all visual configuration look consistent
 
-### Enabling italic fonts in iTerm2
+### Enabling italic in iTerm2 and Vim
 
 * Copy the [`xterm-256color-italic.terminfo`](/master/xterm-256color-italic.terminfo) file to your `$HOME`
 * Make sure you have italics enabled in iTerm2:
@@ -42,7 +42,7 @@ set -g TERM xterm-256color-italic
 $ echo $TERM
 xterm-256color-italic
 ```
-* Tell Vim how to render comments in italic:
+* Now tell Vim how to render comments in italic:
 ```viml
 " Make sure to add this after your theme setup
 highlight Comment cterm=italic
