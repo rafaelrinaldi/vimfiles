@@ -55,8 +55,11 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Syntax highlight
 Plugin 'sheerun/vim-polyglot'
 
-" Syntax highlight for esnext
+" Syntax highlight for ES2015
 Plugin 'othree/yajs.vim'
+
+" Syntaxt highlighting for CSSNext
+Plugin 'hail2u/vim-css3-syntax'
 
 " Code snippets
 Plugin 'sirver/ultisnips'
@@ -179,6 +182,9 @@ set splitright
 
 " Limits the body of Git commit messages to 72 characters
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" Enable spell checking on certain file types
+autocmd BufRead,BufNewFile *.md,gitcommit setlocal spell complete+=kspell
 
 "###############################################################################
 "# Theming
@@ -321,8 +327,6 @@ if has('gui_running')
 
   " Display the default tab style
   set guioptions-=e
-
-  " Display default tab instead of OS
 
   " Manually set whitespace chars colors (known issue in Solarized)
   highlight CursorLineNr cterm=none ctermfg=0 guifg=#D15516 guibg=#FDF7E7
