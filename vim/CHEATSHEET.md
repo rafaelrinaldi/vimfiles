@@ -24,6 +24,8 @@
 | `:buf n` | Open buffer `n` into the current panel |
 | `:only` | Close all panels but the current one |
 | `z1=` | Fix word typos automatically |
+| `dd2kp` | Send current line ↑ |
+| `ddp` | Send current line one ↓ |
 
 ## Share yours
 
