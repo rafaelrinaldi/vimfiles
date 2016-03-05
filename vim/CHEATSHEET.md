@@ -29,4 +29,4 @@
 
 ## Share yours
 
-Know more useful tricks that are not listed here? Please, [let me know](/issues/new?title=Vim trick:) :v:
+Know more useful tricks that are not listed here? Please, [let me know](https://github.com/rafaelrinaldi/vimfiles/issues/new?title=New Vim trick) :v:
