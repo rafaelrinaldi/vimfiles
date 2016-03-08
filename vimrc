@@ -85,6 +85,9 @@ Plugin 'elmcast/elm-vim'
 " Buffer navigation improved
 Plugin 'tpope/vim-unimpaired'
 
+" Easy string coercion
+Plugin 'tpope/vim-abolish'
+
 "###############################################################################
 "# General settings
 "###############################################################################
