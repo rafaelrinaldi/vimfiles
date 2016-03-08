@@ -1,6 +1,8 @@
-# Vim Cheatsheet
+[abolish]: https://github.com/tpope/vim-abolish
+[surround]: https://github.com/tpope/vim-surround
+[unimpaired]: https://github.com/tpope/vim-unimpaired
 
-> My personal reference of Vim useful tricks
+# Vim
 
 | Command | Description |
 | --- | --- |
@@ -26,7 +28,53 @@
 | `z1=` | Fix word typos automatically |
 | `dd2kp` | Send current line ↑ |
 | `ddp` | Send current line one ↓ |
+| `~` | Toggle character casing under the cursor |
+| `guu` | Convert the whole line to lower case |
+| `gUU` | Convert the whole line to upper case |
+| `O` | Add new line above the cursor in insert mode |
+| `o` | Add new line below the cursor in insert mode |
+| `*` | Use current selection as search keyword |
 
-## Share yours
+## Plugins
 
-Know more useful tricks that are not listed here? Please, [let me know](https://github.com/rafaelrinaldi/vimfiles/issues/new?title=New Vim trick) :v:
+### [abolish.vim][abolish]
+
+| Command | Description |
+| --- | --- |
+| `crs` | Convert string to snake_case |
+| `crm` | Convert string to MixedCase (aka PascalCase) |
+| `crc` | Convert string to camelCase |
+| `cru` | Convert stirng to UPPER_CASE |
+| `:%Subvert/p{re,ost}processor{,s}/transpiler/g` | Replace `preprocessors` and `postprocessors` to `transpilers` |
+
+### [surround.vim][surround]
+
+| Command | Description |
+| --- | --- |
+| `cs"''` | Change double quotes to single quotes |
+| `ysiw}` | Surround word under cursor with brackets |
+| `ysiw<small>` | Surround word under cursor with `<small>` tag |
+| `S<div class="wrapper">` | Wrap content of current selection with a `<div>` tag |
+| `yss)` | Surround the whole line with parentheses |
+| `ds]` | Remove square brackets from word under cursor |
+
+### [unimpaired.vim][unimpaired]
+
+| Command | Description |
+| --- | --- |
+| `[b` | Next file on buffer list |
+| `]b` | Previous file on buffer list |
+| `[x` | Encode XML/HTML selection |
+| `]x` | Decode XML/HTML selection |
+| `[u` | Encode URL selection |
+| `]u` | Decode URL selection |
+| `[<Space>` | Add a new line above the cursor |
+| `]<Space>` | Add a new line below the cursor |
+| `[os` | Enable spelling |
+| `]os` | Disable spelling |
+| `[f` | Next file in the directory |
+| `]f` | Previous file in the directory |
+| `[n` | Next Git diff conflict marker |
+| `]n` | Previous Git diff conflict marker |
+| `[y` | Escape string (C String style) |
+| `]y` | Unescape string (C String style) |
