@@ -203,8 +203,8 @@ highlight Comment cterm=italic
 highlight CursorLineNr cterm=bold
 
 " Set hidden characters colors to light gray
-highlight NonText ctermfg=lightgray ctermbg=white
-highlight SpecialKey ctermfg=lightgray ctermbg=white
+highlight NonText ctermfg=187 ctermbg=white
+highlight SpecialKey ctermfg=187 ctermbg=white
 
 "###############################################################################
 "# Emmet
