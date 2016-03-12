@@ -78,17 +78,6 @@ echo -en "\r$prompt_symbol Vundle plugins were successfully installed\n"
 # Default theme is solarized
 theme_default="solarized"
 
-# Read color scheme from the user
-echo -e "$prompt_symbol $style_symbol Color scheme name ($theme_default): \c"
-read theme
-
-if [[ -z $theme ]]; then
-  theme=$theme_default
-fi
-
-# Update `.vimrc` with color scheme
-cat $cwd/vimrc | sed -e "s/\"{{colorscheme}}/colorscheme $theme/" > "$HOME/.vimrc"
-
 if [ "$editor" = "neovim" ]; then
   # Create a symbolic link from the `.vimrc`
   ln -s ~/.vimrc ~/.config/nvim/init.vim
