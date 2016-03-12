@@ -44,7 +44,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-surround'
 
 " Fuzzy search
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Better and faster grep
 Plugin 'rking/ag.vim'
@@ -364,4 +364,3 @@ if has('gui_running')
   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=none guibg=#9DABAB
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=none guibg=#F0EBDA
 endif
-
