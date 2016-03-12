@@ -7,9 +7,9 @@
 ## Install
 
 ```sh
-$ git clone --recursive git@github.com:rafaelrinaldi/vimfiles.git
+$ git clone git@github.com:rafaelrinaldi/vimfiles.git
 $ cd vimfiles
-$ ./install
+$ sh install.sh
 ```
 
 ## Setup
@@ -19,7 +19,6 @@ $ ./install
 * If [Homebrew](http://brew.sh) is available, will try to update the editor to its latest version
 * Uses [Vundle](https://github.com/VundleVim/Vundle.vim) to manage plugins (including Vundle itself)
 * Automatically download and installs Vundle plugins
-* Read color scheme from the user after installing all plugins (default is `solarized`)
 * Supports GUIs making all visual configuration look consistent
 
 ## Enabling italic in iTerm2 and Vim
