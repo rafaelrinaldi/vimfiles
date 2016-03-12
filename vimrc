@@ -88,6 +88,9 @@ Plugin 'tpope/vim-unimpaired'
 " Easy string coercion
 Plugin 'tpope/vim-abolish'
 
+" Programming metrics
+Plugin 'wakatime/vim-wakatime'
+
 "###############################################################################
 "# General settings
 "###############################################################################
@@ -194,7 +197,7 @@ autocmd BufRead,BufNewFile *.md,gitcommit setlocal spell complete+=kspell
 "###############################################################################
 
 " Define color scheme
-"{{colorscheme}}
+colorscheme solarized
 
 " Enable italic text
 highlight Comment cterm=italic
@@ -307,6 +310,27 @@ let g:polyglot_disabled = ['javascript']
 let g:UltiSnipsEditSplit='vertical'
 
 "###############################################################################
+"# Elm Format
+"###############################################################################
+
+let g:elm_format_autosave = 1
+
+"###############################################################################
+"# Qargs
+"###############################################################################
+
+" Custom command to send whatever is on the quickfix list to the arglist
+
+command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+function! QuickfixFilenames()
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+
+"###############################################################################
 "# GUI
 "###############################################################################
 
@@ -340,3 +364,4 @@ if has('gui_running')
   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=none guibg=#9DABAB
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=none guibg=#F0EBDA
 endif
+
